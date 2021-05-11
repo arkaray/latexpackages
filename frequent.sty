@@ -1,0 +1,60 @@
+\usepackage{enumerate}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{hyperref}
+\usepackage{prettyref}
+\newcommand{\savehyperref}[2]{\texorpdfstring{\hyperref[#1]{#2}}{#2}}
+
+\usepackage{lipsum}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}{Definition}
+\newtheorem{fact}{Fact}
+
+\newcommand{\set}[1]{{\{#1\}}}
+\newcommand{\inv}[1]{#1^{-1}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\opt}{\text{OPT}}
+
+\newcommand{\unitvector}[1]{{\mathbf e}_{#1}}
+%Matrix operations
+\newcommand{\rank}{\textrm{rank}}
+\newcommand{\vspan}{\textrm{span}}
+\newcommand{\quadratic}[2]{#1^T#2#1}
+\newcommand{\norm}[1]{#1^T#1}
+\newcommand{\rayleigh}[2]{\frac{\quadratic{#2}{#1}}{\norm #2}}
+\newcommand{\vol}{\text{vol}}
+\newcommand{\braket}[2]{ #1^T#2}
+
+\DeclareOption{hyperref}{
+\newrefformat{eq}{\savehyperref{#1}{\textup{(\ref*{#1})}}}
+\newrefformat{lem}{\savehyperref{#1}{Lemma~\ref*{#1}}}
+\newrefformat{def}{\savehyperref{#1}{Definition~\ref*{#1}}}
+\newrefformat{thm}{\savehyperref{#1}{Theorem~\ref*{#1}}}
+\newrefformat{cor}{\savehyperref{#1}{Corollary~\ref*{#1}}}
+\newrefformat{cha}{\savehyperref{#1}{Chapter~\ref*{#1}}}
+\newrefformat{sec}{\savehyperref{#1}{Section~\ref*{#1}}}
+\newrefformat{app}{\savehyperref{#1}{Appendix~\ref*{#1}}}
+}
+\DeclareOption*{
+	\newrefformat{eq}{\textup{(\ref{#1})}}
+	\newrefformat{lem}{Lemma~\ref{#1}}
+	\newrefformat{def}{Definition~\ref{#1}}
+	\newrefformat{thm}{Theorem~\ref{#1}}
+	\newrefformat{cor}{Corollary~\ref{#1}}
+	\newrefformat{cha}{Chapter~\ref{#1}}
+	\newrefformat{sec}{Section~\ref{#1}}
+	\newrefformat{app}{Appendix~\ref{#1}}
+}
+\ProcessOptions\relax
